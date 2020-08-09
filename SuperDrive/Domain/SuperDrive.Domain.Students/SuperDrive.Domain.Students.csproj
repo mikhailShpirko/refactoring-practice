@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>SuperDrive.Domain.Students</AssemblyName>
+    <RootNamespace>SuperDrive.Domain.Students</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libs\SuperDrive.Libs.Validation\SuperDrive.Libs.Validation.csproj" />
+    <ProjectReference Include="..\SuperDrive.Domain.Core\SuperDrive.Domain.Core.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>SuperDrive.Libs.Validation</AssemblyName>
+    <RootNamespace>SuperDrive.Libs.Validation</RootNamespace>
+  </PropertyGroup>
+
+</Project>
