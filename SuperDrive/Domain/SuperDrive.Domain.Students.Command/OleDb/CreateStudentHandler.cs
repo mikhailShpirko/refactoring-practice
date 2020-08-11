@@ -20,12 +20,21 @@ INSERT INTO st_student (st_name, st_address, st_dob, st_entry_date)
 VALUES (@name, @address, @dateOfBirth, @entryDate)";
 
         protected override Func<Student, OleDbParameter[]> _mapToParameters => (student) => {
+            //OleDb requres to explicitly state type to OleDbType.Date for dates on INSERT
+            var dateOfBirthParam = new OleDbParameter("@dateOfBirth", OleDbType.Date)
+            {
+                Value = student.DateOfBirth
+            };
+            var entryDateParam = new OleDbParameter("@entryDate", OleDbType.Date)
+            {
+                Value = student.EntryDate
+            };
             return new OleDbParameter[]
                     {
                         new OleDbParameter("@name", student.Name),
                         new OleDbParameter("@address", student.Address),
-                        new OleDbParameter("@dateOfBirth", student.DateOfBirth),
-                        new OleDbParameter("@entryDate", student.EntryDate)
+                        dateOfBirthParam,
+                        entryDateParam
                     };
         };
 

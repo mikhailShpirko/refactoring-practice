@@ -19,8 +19,9 @@ namespace SuperDrive.Domain.Students
             Id = id;
             Name = name;
             Address = address;
-            DateOfBirth = dateOfBirth;
-            EntryDate = entryDate;            
+            //time part is redundant
+            DateOfBirth = dateOfBirth.Date;
+            EntryDate = entryDate.Date;            
         }
 
         public int Id { get; protected set; }

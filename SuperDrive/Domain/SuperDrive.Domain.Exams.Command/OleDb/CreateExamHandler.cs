@@ -21,9 +21,14 @@ VALUES (@date, @capacity)";
 
         protected override Func<Exam, OleDbParameter[]> _mapToParameters => (exam) =>
         {
+            //OleDb requres to explicitly state type to OleDbType.Date for dates on INSERT
+            var dateParam = new OleDbParameter("@date", OleDbType.Date)
+            {
+                Value = exam.Date
+            };
             return new OleDbParameter[]
                     {
-                        new OleDbParameter("@date", exam.Date),
+                        dateParam,
                         new OleDbParameter("@capacity", exam.Capacity)
                     };
         };

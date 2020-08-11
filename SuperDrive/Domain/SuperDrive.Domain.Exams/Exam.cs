@@ -9,17 +9,25 @@ namespace SuperDrive.Domain.Exams
 
     public class Exam
     {
+        //for new records
+        public Exam(DateTime date,
+                    int capacity)
+            : this(0, date, capacity)
+        {
+            Validator.ValidateDateMinThreshold(date, DateTime.Now, "Can't create exam in past", nameof(date));
+        }
+
+        //for query in db
         public Exam(int id,
                     DateTime date,
                     int capacity)
         {
             Validator.ValidateIntMinThreshold(id, 0, "Id should not be negative number", nameof(id));
-            Validator.ValidateDateMinThreshold(date, DateTime.Now, "Can't create examp in past", nameof(date));
             Validator.ValidateIntMinThreshold(capacity, 1, "Capacity should be greater than 0", nameof(capacity));
 
 
             Id = id;
-            Date = date;
+            Date = date.Date; //time part is reduntant
             Capacity = capacity;
         }
 

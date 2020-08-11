@@ -33,10 +33,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Extensions.DependencyInjection.3.1.6\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.6\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Configuration.ConfigurationManager.4.7.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OleDb, Version=4.0.1.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\System.Data.OleDb.4.7.1\lib\net461\System.Data.OleDb.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Security.Permissions.4.7.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
@@ -48,16 +80,65 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AddEditStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AddEditStudentForm.Designer.cs">
+      <DependentUpon>AddEditStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddExamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddExamForm.Designer.cs">
+      <DependentUpon>AddExamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamEnrollmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamEnrollmentForm.Designer.cs">
+      <DependentUpon>ExamEnrollmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamListForm.Designer.cs">
+      <DependentUpon>ExamListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentListForm.Designer.cs">
+      <DependentUpon>StudentListForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddEditStudentForm.resx">
+      <DependentUpon>AddEditStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddExamForm.resx">
+      <DependentUpon>AddExamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamEnrollmentForm.resx">
+      <DependentUpon>ExamEnrollmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamListForm.resx">
+      <DependentUpon>ExamListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -67,7 +148,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StudentListForm.resx">
+      <DependentUpon>StudentListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SuperDrive.Domain.Exams.Exam.datasource" />
+    <None Include="Properties\DataSources\SuperDrive.Domain.Students.Student.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -80,6 +166,53 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Core\SuperDrive.Domain.Core.csproj">
+      <Project>{1ca6a0ec-467a-40e9-ad0b-bd10f3aa975d}</Project>
+      <Name>SuperDrive.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Exams.Command\SuperDrive.Domain.Exams.Command.csproj">
+      <Project>{d464395a-0e05-4cc3-89db-a71e49d7b811}</Project>
+      <Name>SuperDrive.Domain.Exams.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Exams.Query\SuperDrive.Domain.Exams.Query.csproj">
+      <Project>{9d4f488b-fd95-4ccf-a7e8-0984b8cbf953}</Project>
+      <Name>SuperDrive.Domain.Exams.Query</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Exams\SuperDrive.Domain.Exams.csproj">
+      <Project>{82430c83-f7a2-40ae-95e6-d1c6b1696893}</Project>
+      <Name>SuperDrive.Domain.Exams</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Generic.OleDb\SuperDrive.Domain.Generic.OleDb.csproj">
+      <Project>{F5D820FF-4771-4091-AA3F-0247D18B9817}</Project>
+      <Name>SuperDrive.Domain.Generic.OleDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Students.Command\SuperDrive.Domain.Students.Command.csproj">
+      <Project>{ed4468f1-ab31-4764-b802-f2e387f4d508}</Project>
+      <Name>SuperDrive.Domain.Students.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Students.Query\SuperDrive.Domain.Students.Query.csproj">
+      <Project>{8f25968f-aa8d-4df8-836b-d83622046f9e}</Project>
+      <Name>SuperDrive.Domain.Students.Query</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Students\SuperDrive.Domain.Students.csproj">
+      <Project>{ea35042f-b07a-4fc2-b36c-375a35102097}</Project>
+      <Name>SuperDrive.Domain.Students</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libs\SuperDrive.Libs.BubleSort\SuperDrive.Libs.BubleSort.csproj">
+      <Project>{5f1c0a30-9a92-45b5-b318-a87d60f273b2}</Project>
+      <Name>SuperDrive.Libs.BubleSort</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Util\SuperDrive.Util.ConnectionStringProviders\SuperDrive.Util.ConnectionStringProviders.csproj">
+      <Project>{f746ac5f-4ac4-4b16-85fa-97672f58c1de}</Project>
+      <Name>SuperDrive.Util.ConnectionStringProviders</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="superdrive.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
