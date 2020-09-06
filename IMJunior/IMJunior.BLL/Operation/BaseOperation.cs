@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace IMJunior.Operation
+namespace IMJunior.BLL.Operation
 {
     public abstract class BaseOperation: IOperation
     {

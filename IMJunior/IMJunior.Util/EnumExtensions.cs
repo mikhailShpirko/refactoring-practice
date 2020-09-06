@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 
-namespace IMJunior
+namespace IMJunior.Util
 {
     public static class EnumExtensions
     {

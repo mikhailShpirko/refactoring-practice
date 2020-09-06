@@ -1,22 +1,19 @@
-﻿using IMJunior.Operation;
-using System;
+﻿using IMJunior.BLL.Operation;
+using IMJunior.Util;
 using System.Linq;
 
-
-namespace IMJunior
+namespace IMJunior.BLL
 {
     public class Character
     {
         private Ability[] _abilities;
         private int _age;
-        private int _points;
 
-
-        public int Points => _points;
+        public int Points { get; private set; }
 
         public Character(int points)
         {
-            _points = points;
+            Points = points;
             _abilities = new Ability[EnumExtensions.EnumArrayLength<AbilityType>()];
             foreach (AbilityType abilityType in EnumExtensions.EnumToArray<AbilityType>())
             {
@@ -33,7 +30,7 @@ namespace IMJunior
         {
             _abilities[(int)abilityType].UpdatePoints(operation.UpdateAbility);
 
-            _points = operation.UpdatePoints(_points);
+            Points = operation.UpdatePoints(Points);
         }
 
 

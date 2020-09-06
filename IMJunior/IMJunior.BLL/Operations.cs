@@ -1,9 +1,7 @@
-﻿using IMJunior.Operation;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using IMJunior.BLL.Operation;
+using IMJunior.Util;
 
-namespace IMJunior
+namespace IMJunior.BLL
 {
     public class Operations
     {

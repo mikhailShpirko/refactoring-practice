@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Text;
+using IMJunior.Util;
+using IMJunior.BLL;
 
-namespace IMJunior
+namespace IMJunior.ConsoleApp
 {
     public class InputHelper
     {

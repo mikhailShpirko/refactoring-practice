@@ -1,10 +1,9 @@
-﻿using IMJunior.Operation;
+﻿using IMJunior.BLL;
+using IMJunior.BLL.Operation;
 using System;
 using System.Text;
-//source: https://www.youtube.com/watch?v=1eY2IomNcz4
-//before: https://pastebin.com/RSc7Uvqx
 
-namespace IMJunior
+namespace IMJunior.ConsoleApp
 {
     class Program
     {
@@ -50,9 +49,9 @@ namespace IMJunior
             character.SetAge(inputHelper.GetNumber());
 
             Console.Clear();
-           
-            Console.WriteLine(character.ToString());
 
+            Console.WriteLine(character.ToString());
+            Console.ReadKey();
         }
     }
 }

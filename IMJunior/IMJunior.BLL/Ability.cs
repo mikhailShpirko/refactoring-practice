@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using IMJunior.Util;
+using System;
 
-namespace IMJunior
+namespace IMJunior.BLL
 {
     public class Ability
     {
