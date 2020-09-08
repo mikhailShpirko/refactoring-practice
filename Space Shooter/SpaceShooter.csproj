@@ -39,6 +39,8 @@
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\Core\Enums.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\Environment\ScreenBoundary.cs" />
+     <Compile Include="Assets\Scripts\Environment\SpawnPoint.cs" />
      <Compile Include="Assets\Scripts\GameOverPresenter.cs" />
      <Compile Include="Assets\Scripts\Guns\Gun.cs" />
      <Compile Include="Assets\Scripts\Guns\GunWithReload.cs" />
@@ -54,7 +56,6 @@
      <Compile Include="Assets\Scripts\Score\IScore.cs" />
      <Compile Include="Assets\Scripts\Score\PlaythroughScore.cs" />
      <Compile Include="Assets\Scripts\Score\ScorePresenter.cs" />
-     <Compile Include="Assets\Scripts\ScreenBoundary.cs" />
      <Compile Include="Assets\Scripts\Shooters\AutoShooter.cs" />
      <Compile Include="Assets\Scripts\Shooters\BaseShooter.cs" />
      <Compile Include="Assets\Scripts\Shooters\UserInputShooter.cs" />

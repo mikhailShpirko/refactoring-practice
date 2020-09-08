@@ -16,12 +16,12 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] 
     private int _maxEnemiesSpawn;
-    private GameObject[] _spawnPoints;  
+    private SpawnPoint[] _spawnPoints;  
     private float _lastSpawnTimeSeconds;
 
     private void Start()
     {
-        _spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        _spawnPoints = FindObjectsOfType<SpawnPoint>();
         SpawnEnemies();
     }
 
@@ -42,8 +42,8 @@ public class EnemySpawner : MonoBehaviour
     }
     private void SpawnEnemy()
     {
-        var spawn = _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Length)].transform;
-        var startPosition = spawn.position;
+        var spawnPoint = _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Length)];
+        var startPosition = spawnPoint.Position;
         _pool.GetFromPool<Enemy>(PoolObjectType.Enemy, startPosition, new Vector3(0,0,180));
     }
 
