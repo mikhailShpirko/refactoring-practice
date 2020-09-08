@@ -1,0 +1,28 @@
+{
+    "unity-tools.documentationVersion" : "2020.1",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/*.meta": true,
+        "**/*.*.meta": true,
+        "**/*.unity": true,
+        "**/*.unityproj": true,
+        "**/*.mat": true,
+        "**/*.fbx": true,
+        "**/*.FBX": true,
+        "**/*.tga": true,
+        "**/*.cubemap": true,
+        "**/*.prefab": true,
+        "**/*.asset": true,
+        "**/Library": true,
+        "**/Logs": true,
+        "**/Animation": true,
+        "**/Graphics": true,
+        "**/Scenes": true,
+        "**/Prefabs": true,
+        "**/Materials": true,
+        "**/ProjectSettings": true,
+        "**/Temp": true,
+        "**/obj": true
+    }
+}

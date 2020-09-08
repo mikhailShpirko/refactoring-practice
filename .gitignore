@@ -348,3 +348,25 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Unity folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+Assets/AssetStoreTools*
+
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+# Builds
+*.apk
+*.unitypackage
+
+# Crashlytics generated file
+Assets/StreamingAssets/crashlytics-build.properties
