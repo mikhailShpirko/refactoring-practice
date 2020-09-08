@@ -8,7 +8,7 @@ Before refactoring: https://pastebin.com/RSc7Uvqx
 The app is a primitive emulator of RPG mechanics. User as a character has a number of points that can be spent on abilities. Following DRY and SOLID, I made the solution more dynamic - abilities can be easily added or removed without crash for the app.
 
 ## Space Shooter
-This is an enhanced solution for one of the seminars delivered in Game Development module at Westminster International University in Tashkent. The project is a prototype of endless space shooter gameplay.
+This is an enhanced solution for one of the seminars delivered in Game Development module at Westminster International University in Tashkent. The project is a prototype of endless space shooter gameplay made with Unity game engine.
  
 I heavily refactored the solution to follow SRP and decomposed all the classes into separate standalone ones. As a result, all behavioural logic is modular and can be added as components of the objects. Additionally, I prefer using build-in C# events over UnityEvent. Even though it is very convenient to subscribe event receivers via Editor, C# events have better performance according to the following benchmark https://www.jacksondunstan.com/articles/3335
 
