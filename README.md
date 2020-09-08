@@ -2,10 +2,15 @@
 Repository where I practice refactoring. I find refactoring tasks and open source projects and refactor them to follow SOLID
 
 ## IMJunior
-Found a video with a task to refactor given code: https://www.youtube.com/watch?v=1eY2IomNcz4  
+I found a video with a task to refactor given code: https://www.youtube.com/watch?v=1eY2IomNcz4  
 Before refactoring: https://pastebin.com/RSc7Uvqx  
   
 The app is a primitive emulator of RPG mechanics. User as a character has a number of points that can be spent on abilities. Following DRY and SOLID, I made the solution more dynamic - abilities can be easily added or removed without crash for the app.
+
+## Space Shooter
+This is an enhanced solution for one of the seminars delivered in Game Development module at Westminster International University in Tashkent. The project is a prototype of endless space shooter gameplay.
+ 
+I heavily refactored the solution to follow SRP and decomposed all the classes into separate standalone ones. As a result, all behavioural logic is modular and can be added as components of the objects. Additionally, I prefer using build-in C# events over UnityEvent. Even though it is very convenient to subscribe event receivers via Editor, C# events have better performance according to the following benchmark https://www.jacksondunstan.com/articles/3335
 
 ## SuperDrive
 I decided to re-develop the course work that I did during level 4 of BSc Business Information Systems (Westminster International University in Tashkent) for Fundamentals of Programming module. The task (or technical requirements) is available here: https://github.com/mikhailShpirko/refactoring-practice/blob/master/SuperDrive/WIUT_FunPro_CW1_Sem2_2012_2013.pdf
