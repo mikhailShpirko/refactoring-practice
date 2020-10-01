@@ -9,9 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DAL\SuperDrive.DAL.OleDb\SuperDrive.DAL.OleDb.csproj" />
     <ProjectReference Include="..\SuperDrive.Domain.Core\SuperDrive.Domain.Core.csproj" />
     <ProjectReference Include="..\SuperDrive.Domain.Exams\SuperDrive.Domain.Exams.csproj" />
-    <ProjectReference Include="..\SuperDrive.Domain.Generic.OleDb\SuperDrive.Domain.Generic.OleDb.csproj" />
   </ItemGroup>
 
 </Project>

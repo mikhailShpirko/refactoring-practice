@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Text;
 
-namespace SuperDrive.Domain.Generic.OleDb
+namespace SuperDrive.DAL.OleDb
 {
     public abstract class BaseSingleRecordQueryHandler<TQuery, TResult> 
         : BaseHandler, IQueryHandler<TQuery, TResult> where TResult : class

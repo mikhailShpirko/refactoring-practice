@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Text;
 
-namespace SuperDrive.Domain.Generic.OleDb
+namespace SuperDrive.DAL.OleDb
 {
     public abstract class BaseCommandHandler<TData>: BaseHandler, ICommandHandler<TData>
     {

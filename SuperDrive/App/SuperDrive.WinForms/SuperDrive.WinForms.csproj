@@ -151,7 +151,9 @@
     <EmbeddedResource Include="StudentListForm.resx">
       <DependentUpon>StudentListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\SuperDrive.Domain.Exams.Exam.datasource" />
     <None Include="Properties\DataSources\SuperDrive.Domain.Students.Student.datasource" />
     <None Include="Properties\Settings.settings">
@@ -168,6 +170,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\DAL\SuperDrive.DAL.OleDb\SuperDrive.DAL.OleDb.csproj">
+      <Project>{1d7b9250-c1a8-4b71-906c-f2d0b727fcb2}</Project>
+      <Name>SuperDrive.DAL.OleDb</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Core\SuperDrive.Domain.Core.csproj">
       <Project>{1ca6a0ec-467a-40e9-ad0b-bd10f3aa975d}</Project>
       <Name>SuperDrive.Domain.Core</Name>
@@ -183,10 +189,6 @@
     <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Exams\SuperDrive.Domain.Exams.csproj">
       <Project>{82430c83-f7a2-40ae-95e6-d1c6b1696893}</Project>
       <Name>SuperDrive.Domain.Exams</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Generic.OleDb\SuperDrive.Domain.Generic.OleDb.csproj">
-      <Project>{F5D820FF-4771-4091-AA3F-0247D18B9817}</Project>
-      <Name>SuperDrive.Domain.Generic.OleDb</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Domain\SuperDrive.Domain.Students.Command\SuperDrive.Domain.Students.Command.csproj">
       <Project>{ed4468f1-ab31-4764-b802-f2e387f4d508}</Project>

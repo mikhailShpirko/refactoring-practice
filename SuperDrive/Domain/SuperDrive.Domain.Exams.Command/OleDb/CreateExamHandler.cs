@@ -1,9 +1,7 @@
 ﻿using SuperDrive.Domain.Core;
-using SuperDrive.Domain.Generic.OleDb;
+using SuperDrive.DAL.OleDb;
 using System;
-using System.Collections.Generic;
 using System.Data.OleDb;
-using System.Text;
 
 namespace SuperDrive.Domain.Exams.Command.OleDb
 {
