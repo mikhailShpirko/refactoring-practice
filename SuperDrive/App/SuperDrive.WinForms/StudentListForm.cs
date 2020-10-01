@@ -13,12 +13,6 @@ namespace SuperDrive.WinForms
         private readonly IGetAllStudentsQueryHandler _getAllStudentsQueryHandler;
         private readonly IDeleteStudentCommandHandler _deleteStudentCommandHandler;
 
-        private readonly IComparer<Student>[] _studentComparers = new IComparer<Student>[]
-        {
-            new ByNameComparer(),
-            new ByEntryDateComparer()
-        };
-
         public StudentListForm()
         {
             InitializeComponent();
@@ -26,10 +20,14 @@ namespace SuperDrive.WinForms
             _getAllStudentsQueryHandler = DependencyResolver.Instance.Resolve<IGetAllStudentsQueryHandler>();
             _deleteStudentCommandHandler = DependencyResolver.Instance.Resolve<IDeleteStudentCommandHandler>();
 
+            cbxSortOrder.DataSource = new List<StudentComparersComboBoxItem>
+            {
+                new StudentComparersComboBoxItem("Name", new ByNameComparer()),
+                new StudentComparersComboBoxItem("Entry Date", new ByEntryDateComparer())
+            };
+
             RefreshStudentList();
         }
-
-
 
         private void RefreshStudentList()
         {
@@ -42,9 +40,9 @@ namespace SuperDrive.WinForms
                     students = students.Where(s => s.Name.ToLower().Contains(tbxSearch.Text.Trim().ToLower()));
                 }
 
-                if (cbxSortOrder.SelectedIndex > 0 && cbxSortOrder.SelectedIndex < _studentComparers.Length)
+                if (cbxSortOrder.TryGetSelectedBoundedObject<StudentComparersComboBoxItem>(out var selectedItem))
                 {
-                    students = students.ToArray().BubleSort(_studentComparers[cbxSortOrder.SelectedIndex]);
+                    students = students.ToArray().BubleSort(selectedItem.Comparer);
                 }
 
                 studentBindingSource.DataSource = students;

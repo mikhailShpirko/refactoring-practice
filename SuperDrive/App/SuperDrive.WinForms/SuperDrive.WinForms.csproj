@@ -95,7 +95,7 @@
     <Compile Include="AddExamForm.Designer.cs">
       <DependentUpon>AddExamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataGridViewExtensions.cs" />
+    <Compile Include="FormControlsExtensions.cs" />
     <Compile Include="DependencyResolver.cs" />
     <Compile Include="ExamEnrollmentForm.cs">
       <SubType>Form</SubType>
@@ -117,6 +117,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentComparersComboBoxItem.cs" />
     <Compile Include="StudentListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +154,7 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\StudentComparersComboBoxItem.datasource" />
     <None Include="Properties\DataSources\SuperDrive.Domain.Exams.Exam.datasource" />
     <None Include="Properties\DataSources\SuperDrive.Domain.Students.Student.datasource" />
     <None Include="Properties\Settings.settings">
@@ -204,6 +206,10 @@
     <ProjectReference Include="..\..\Libs\SuperDrive.Libs.BubleSort\SuperDrive.Libs.BubleSort.csproj">
       <Project>{5f1c0a30-9a92-45b5-b318-a87d60f273b2}</Project>
       <Name>SuperDrive.Libs.BubleSort</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libs\SuperDrive.Libs.Validation\SuperDrive.Libs.Validation.csproj">
+      <Project>{8E2EE5DB-7559-4759-AFCF-B2B272AF7A72}</Project>
+      <Name>SuperDrive.Libs.Validation</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Util\SuperDrive.Util.ConnectionStringProviders\SuperDrive.Util.ConnectionStringProviders.csproj">
       <Project>{f746ac5f-4ac4-4b16-85fa-97672f58c1de}</Project>

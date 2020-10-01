@@ -30,12 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvStudentList = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entryDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.lblSearchHint = new System.Windows.Forms.Label();
             this.lblSortOrderHint = new System.Windows.Forms.Label();
@@ -43,8 +37,16 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entryDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentComparersComboBoxItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentComparersComboBoxItemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvStudentList
@@ -69,6 +71,77 @@
             this.dgvStudentList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudentList.Size = new System.Drawing.Size(940, 536);
             this.dgvStudentList.TabIndex = 0;
+            // 
+            // tbxSearch
+            // 
+            this.tbxSearch.Location = new System.Drawing.Point(979, 39);
+            this.tbxSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.tbxSearch.Name = "tbxSearch";
+            this.tbxSearch.Size = new System.Drawing.Size(184, 23);
+            this.tbxSearch.TabIndex = 1;
+            this.tbxSearch.TextChanged += new System.EventHandler(this.tbxSearch_TextChanged);
+            // 
+            // lblSearchHint
+            // 
+            this.lblSearchHint.AutoSize = true;
+            this.lblSearchHint.Location = new System.Drawing.Point(975, 19);
+            this.lblSearchHint.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearchHint.Name = "lblSearchHint";
+            this.lblSearchHint.Size = new System.Drawing.Size(57, 17);
+            this.lblSearchHint.TabIndex = 2;
+            this.lblSearchHint.Text = "Search:";
+            // 
+            // lblSortOrderHint
+            // 
+            this.lblSortOrderHint.AutoSize = true;
+            this.lblSortOrderHint.Location = new System.Drawing.Point(979, 88);
+            this.lblSortOrderHint.Name = "lblSortOrderHint";
+            this.lblSortOrderHint.Size = new System.Drawing.Size(65, 17);
+            this.lblSortOrderHint.TabIndex = 3;
+            this.lblSortOrderHint.Text = "OrderBy:";
+            // 
+            // cbxSortOrder
+            // 
+            this.cbxSortOrder.DataSource = this.studentComparersComboBoxItemBindingSource;
+            this.cbxSortOrder.DisplayMember = "DisplayText";
+            this.cbxSortOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSortOrder.FormattingEnabled = true;
+            this.cbxSortOrder.Location = new System.Drawing.Point(982, 108);
+            this.cbxSortOrder.Name = "cbxSortOrder";
+            this.cbxSortOrder.Size = new System.Drawing.Size(181, 24);
+            this.cbxSortOrder.TabIndex = 4;
+            this.cbxSortOrder.ValueMember = "Comparer";
+            this.cbxSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbxSortOrder_SelectedIndexChanged);
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(994, 392);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(158, 35);
+            this.btnCreate.TabIndex = 5;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(994, 454);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(158, 35);
+            this.btnUpdate.TabIndex = 6;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(994, 512);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(158, 35);
+            this.btnDelete.TabIndex = 7;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -111,76 +184,9 @@
             // 
             this.studentBindingSource.DataSource = typeof(SuperDrive.Domain.Students.Student);
             // 
-            // tbxSearch
+            // studentComparersComboBoxItemBindingSource
             // 
-            this.tbxSearch.Location = new System.Drawing.Point(979, 39);
-            this.tbxSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.tbxSearch.Name = "tbxSearch";
-            this.tbxSearch.Size = new System.Drawing.Size(184, 23);
-            this.tbxSearch.TabIndex = 1;
-            this.tbxSearch.TextChanged += new System.EventHandler(this.tbxSearch_TextChanged);
-            // 
-            // lblSearchHint
-            // 
-            this.lblSearchHint.AutoSize = true;
-            this.lblSearchHint.Location = new System.Drawing.Point(975, 19);
-            this.lblSearchHint.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSearchHint.Name = "lblSearchHint";
-            this.lblSearchHint.Size = new System.Drawing.Size(57, 17);
-            this.lblSearchHint.TabIndex = 2;
-            this.lblSearchHint.Text = "Search:";
-            // 
-            // lblSortOrderHint
-            // 
-            this.lblSortOrderHint.AutoSize = true;
-            this.lblSortOrderHint.Location = new System.Drawing.Point(979, 88);
-            this.lblSortOrderHint.Name = "lblSortOrderHint";
-            this.lblSortOrderHint.Size = new System.Drawing.Size(65, 17);
-            this.lblSortOrderHint.TabIndex = 3;
-            this.lblSortOrderHint.Text = "OrderBy:";
-            // 
-            // cbxSortOrder
-            // 
-            this.cbxSortOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxSortOrder.FormattingEnabled = true;
-            this.cbxSortOrder.Items.AddRange(new object[] {
-            "Name",
-            "Entry Date"});
-            this.cbxSortOrder.Location = new System.Drawing.Point(982, 108);
-            this.cbxSortOrder.Name = "cbxSortOrder";
-            this.cbxSortOrder.Size = new System.Drawing.Size(181, 24);
-            this.cbxSortOrder.TabIndex = 4;
-            this.cbxSortOrder.SelectedIndexChanged += new System.EventHandler(this.cbxSortOrder_SelectedIndexChanged);
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Location = new System.Drawing.Point(994, 392);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(158, 35);
-            this.btnCreate.TabIndex = 5;
-            this.btnCreate.Text = "Create";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(994, 454);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(158, 35);
-            this.btnUpdate.TabIndex = 6;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(994, 512);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(158, 35);
-            this.btnDelete.TabIndex = 7;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.studentComparersComboBoxItemBindingSource.DataSource = typeof(SuperDrive.WinForms.StudentComparersComboBoxItem);
             // 
             // StudentListForm
             // 
@@ -201,6 +207,7 @@
             this.Text = "Students";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentComparersComboBoxItemBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,5 +229,6 @@
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.BindingSource studentComparersComboBoxItemBindingSource;
     }
 }
