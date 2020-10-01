@@ -8,7 +8,7 @@ using SuperDrive.Libs.BubleSort;
 
 namespace SuperDrive.WinForms
 {
-    public partial class StudentListForm : BaseListForm
+    public partial class StudentListForm : Form
     {
         private readonly IGetAllStudentsQueryHandler _getAllStudentsQueryHandler;
         private readonly IDeleteStudentCommandHandler _deleteStudentCommandHandler;
@@ -57,11 +57,6 @@ namespace SuperDrive.WinForms
             
         }
 
-        private int GetSelectedStudentId()
-        {
-            return GetSelectedRow<Student>(dgvStudentList).Id;
-        }
-
         private void OpenAddEditStudentForm(AddEditStudentForm form)
         {
             form.MdiParent = MdiParent;
@@ -83,11 +78,12 @@ namespace SuperDrive.WinForms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!IsRowSelected(dgvStudentList))
+            if (!dgvStudentList.TryGetSelectedBoundedObject<Student>(out var selectedStudent))
             {
+                MessageBox.Show("Select a student", "Error");
                 return;
             }
-            _deleteStudentCommandHandler.Handle(GetSelectedStudentId());
+            _deleteStudentCommandHandler.Handle(selectedStudent.Id);
             RefreshStudentList();
         }
 
@@ -98,11 +94,12 @@ namespace SuperDrive.WinForms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!IsRowSelected(dgvStudentList))
+            if (!dgvStudentList.TryGetSelectedBoundedObject<Student>(out var selectedStudent))
             {
+                MessageBox.Show("Select a student", "Error");
                 return;
             }
-            OpenAddEditStudentForm(new AddEditStudentForm(GetSelectedStudentId()));
+            OpenAddEditStudentForm(new AddEditStudentForm(selectedStudent.Id));
         }
 
         #endregion

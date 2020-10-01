@@ -95,9 +95,7 @@
     <Compile Include="AddExamForm.Designer.cs">
       <DependentUpon>AddExamForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BaseListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="DataGridViewExtensions.cs" />
     <Compile Include="DependencyResolver.cs" />
     <Compile Include="ExamEnrollmentForm.cs">
       <SubType>Form</SubType>

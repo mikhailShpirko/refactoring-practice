@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace SuperDrive.WinForms
 {
-    public partial class ExamListForm : BaseListForm
+    public partial class ExamListForm : Form
     {
         private readonly IGetAllExamsQueryHandler _getAllExamsQueryHandler;
 
@@ -35,11 +35,6 @@ namespace SuperDrive.WinForms
             }
         }
 
-        private int GetSelectedExamId()
-        {
-            return GetSelectedRow<Exam>(dgvExamList).Id;
-        }
-
         #region "Event Handlers"
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -51,11 +46,12 @@ namespace SuperDrive.WinForms
 
         private void btnEnroll_Click(object sender, EventArgs e)
         {
-            if (!IsRowSelected(dgvExamList))
+            if(!dgvExamList.TryGetSelectedBoundedObject<Exam>(out var selectedExam))
             {
+                MessageBox.Show("Select an exam", "Error");
                 return;
             }
-            OpenForm(new ExamEnrollmentForm(GetSelectedExamId()));
+            OpenForm(new ExamEnrollmentForm(selectedExam.Id));
         }
 
         #endregion
