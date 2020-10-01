@@ -20,8 +20,8 @@ namespace SuperDrive.WinForms
         public ExamEnrollmentForm(int examId)
         {
             InitializeComponent();
-            _getAllStudentsQueryHandler = (IGetAllStudentsQueryHandler)Program.ServiceProvider.GetService(typeof(IGetAllStudentsQueryHandler));
-            _getExamByIdQueryHandler = (IGetExamByIdQueryHandler)Program.ServiceProvider.GetService(typeof(IGetExamByIdQueryHandler));
+            _getAllStudentsQueryHandler = DependencyResolver.Instance.Resolve<IGetAllStudentsQueryHandler>();
+            _getExamByIdQueryHandler = DependencyResolver.Instance.Resolve<IGetExamByIdQueryHandler>();
             var exam = _getExamByIdQueryHandler.Handle(examId);
             MapExamToControls(exam);
             FillStudentsList(exam);

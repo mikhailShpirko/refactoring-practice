@@ -18,7 +18,7 @@ namespace SuperDrive.WinForms
         public AddExamForm()
         {
             InitializeComponent();
-            _createExamCommandHandler = (ICreateExamCommandHandler)Program.ServiceProvider.GetService(typeof(ICreateExamCommandHandler));
+            _createExamCommandHandler = DependencyResolver.Instance.Resolve<ICreateExamCommandHandler>();
         }
 
         private Exam MapExamFromControls()

@@ -20,7 +20,7 @@ namespace SuperDrive.WinForms
 
         public AddEditStudentForm()
         {
-            _addEditCommandHandler = (ICreateStudentCommandHandler)Program.ServiceProvider.GetService(typeof(ICreateStudentCommandHandler));
+            _addEditCommandHandler = DependencyResolver.Instance.Resolve<ICreateStudentCommandHandler>();
             _addEditStudentId = 0;            
             InitializeComponent();
             SetFormTitle("Create new student");
@@ -29,11 +29,11 @@ namespace SuperDrive.WinForms
         public AddEditStudentForm(int id)
         {
             
-            _addEditCommandHandler = (IUpdateStudentCommandHandler)Program.ServiceProvider.GetService(typeof(IUpdateStudentCommandHandler));
+            _addEditCommandHandler = DependencyResolver.Instance.Resolve<IUpdateStudentCommandHandler>();
             _addEditStudentId = id;
             InitializeComponent();
 
-            var getByIdQueryHadler = (IGetStudentByIdQueryHandler)Program.ServiceProvider.GetService(typeof(IGetStudentByIdQueryHandler));
+            var getByIdQueryHadler = DependencyResolver.Instance.Resolve<IGetStudentByIdQueryHandler>();
             var student = getByIdQueryHadler.Handle(id);
             MapStudentToControls(student);
             SetFormTitle("Update student info");

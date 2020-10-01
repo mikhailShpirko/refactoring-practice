@@ -27,8 +27,8 @@ namespace SuperDrive.WinForms
         {
             InitializeComponent();
 
-            _getAllStudentsQueryHandler = (IGetAllStudentsQueryHandler)Program.ServiceProvider.GetService(typeof(IGetAllStudentsQueryHandler));
-            _deleteStudentCommandHandler = (IDeleteStudentCommandHandler)Program.ServiceProvider.GetService(typeof(IDeleteStudentCommandHandler));
+            _getAllStudentsQueryHandler = DependencyResolver.Instance.Resolve<IGetAllStudentsQueryHandler>();
+            _deleteStudentCommandHandler = DependencyResolver.Instance.Resolve<IDeleteStudentCommandHandler>();
 
             RefreshStudentList();
         }

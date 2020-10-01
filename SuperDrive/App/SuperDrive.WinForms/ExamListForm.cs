@@ -18,7 +18,7 @@ namespace SuperDrive.WinForms
         public ExamListForm()
         {
             InitializeComponent();
-            _getAllExamsQueryHandler = (IGetAllExamsQueryHandler)Program.ServiceProvider.GetService(typeof(IGetAllExamsQueryHandler));
+            _getAllExamsQueryHandler = DependencyResolver.Instance.Resolve<IGetAllExamsQueryHandler>();
             RefreshExamList();
         }
 
