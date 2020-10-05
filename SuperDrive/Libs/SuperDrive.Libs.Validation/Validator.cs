@@ -11,7 +11,7 @@ namespace SuperDrive.Libs.Validation
 
         private static void ThrowArgumentNullException(string message, string paramName)
         {
-            throw new ArgumentNullException(message, paramName);
+            throw new ArgumentNullException(paramName, message);
         }
     }
 }
