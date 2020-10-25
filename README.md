@@ -1,6 +1,11 @@
 # Refactoring practice
 Repository where I practice refactoring. I find refactoring tasks, open source projects or own small projects developed some time ago and refactor them to follow SOLID
 
+## Have a guess
+This is an enhanced solution for one of the seminars delivered in Game Development module at Westminster International University in Tashkent. The project is a prototype of guessing number gameplay made with Unity game engine.
+ 
+I heavily refactored the solution to follow SRP and decomposed all the classes into separate standalone ones. The interactions between classes are done using publisher-subscriber design patter. I used UnityEvents for this example due to the ability to assign subscribers in Unity Editor. This allowed making components fully independent.
+
 ## IMJunior
 I found a video with a task to refactor given code: https://www.youtube.com/watch?v=1eY2IomNcz4  
 Before refactoring: https://pastebin.com/RSc7Uvqx  
