@@ -6,7 +6,6 @@ public class GuessChecker : MonoBehaviour
 {
     private int _correctNumber;
 
-    [SerializeField]
     public CheckResultEvent OnChecked;
 
     public void SetCorrectNumber(int correctNumber)
