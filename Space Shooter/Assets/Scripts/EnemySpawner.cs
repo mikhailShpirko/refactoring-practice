@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour 
 {
-    [SerializeField]
-    private Enemy EnemyPrefab;
-
     [SerializeField]    
     private ObjectPool _pool;
 
