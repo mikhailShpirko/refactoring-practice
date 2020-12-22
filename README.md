@@ -26,3 +26,9 @@ I heavily refactored the solution to follow SRP and decomposed all the classes i
 I decided to re-develop the course work that I did during level 4 of BSc Business Information Systems (Westminster International University in Tashkent) for Fundamentals of Programming module. The task (or technical requirements) is available here: https://github.com/mikhailShpirko/refactoring-practice/blob/master/SuperDrive/WIUT_FunPro_CW1_Sem2_2012_2013.pdf
  
 The goal was to apply the principles of DDD and CQRS to the solution as well as follow DRY and SOLID. I made the clear separation of domains, commands and queries as well as wrote a custom extension for bubble sorting over a generic array and generic implementation of OleDb commands and queries.
+
+
+## TruckTour
+I found a practice task on Hacker Rank for Data Structures: https://www.hackerrank.com/challenges/truck-tour/problem
+ 
+I implemented solution to fulfil the requrements and followed SOLID principles upon the development. Additionally, I covered critical parts of the solutions with Unit Tests to verify that calculation is valid and produces result according to the given rquirements.
