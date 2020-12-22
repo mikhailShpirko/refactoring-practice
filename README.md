@@ -31,4 +31,4 @@ The goal was to apply the principles of DDD and CQRS to the solution as well as 
 ## TruckTour
 I found a practice task on Hacker Rank for Data Structures: https://www.hackerrank.com/challenges/truck-tour/problem
  
-I implemented solution to fulfil the requrements and followed SOLID principles upon the development. Additionally, I covered critical parts of the solutions with Unit Tests to verify that calculation is valid and produces result according to the given rquirements.
+I implemented solution to fulfil the requrements and followed SOLID principles upon the development. I decided to go with LinkedList and created extension to make circular linked list. Additionally, I covered critical parts of the solutions with Unit Tests to verify that calculation is valid and produces result according to the given rquirements.
