@@ -38,6 +38,8 @@ namespace TicTacToe
             }
         }
 
+        private Brush[] _playerColor = {Brushes.Transparent, Brushes.Blue, Brushes.Red};
+
         private void FillCells(Graphics g)
         {
             for (var i = 0; i < 3; i++)
@@ -45,14 +47,7 @@ namespace TicTacToe
                 for (var j = 0; j < 3; j++)
                 {
                     var cellCoordinates = GetCellCoordinates(i, j);
-                    if (_cells[i, j] == Players.Player1)
-                    {
-                        g.FillRegion(Brushes.Blue, new Region(cellCoordinates));
-                    }
-                    else if (_cells[i, j] == Players.Player2)
-                    {
-                        g.FillRegion(Brushes.Red, new Region(cellCoordinates));
-                    }
+                    g.FillRegion(_playerColor[(int)_cells[i, j]], new Region(cellCoordinates));
                 }
             }
         }
