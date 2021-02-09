@@ -19,8 +19,8 @@ namespace TicTacToe
             Tie
         }
 
-        private Players[,] cells = new Players[3,3];
-        Players currentMove = Players.Player1;
+        private Players[,] _cells = new Players[3,3];
+        private Players _currentMove = Players.Player1;
 
         private void pnl_Paint(object sender, PaintEventArgs e)
         {
@@ -35,10 +35,14 @@ namespace TicTacToe
                 for (var j = 0; j < 3; j++)
                 {
                     var cellCoordinates = new Rectangle(i * 70 + 1, j * 70 + 1, 69, 69);
-                    if (cells[i, j] == Players.Player1)
+                    if (_cells[i, j] == Players.Player1)
+                    {
                         g.FillRegion(Brushes.Blue, new Region(cellCoordinates));
-                    else if (cells[i, j] == Players.Player2)
+                    }
+                    else if (_cells[i, j] == Players.Player2)
+                    {
                         g.FillRegion(Brushes.Red, new Region(cellCoordinates));
+                    }
                 }
             }
         }
@@ -54,10 +58,10 @@ namespace TicTacToe
                     if (cellCoordinates.Contains(e.Location.X, e.Location.Y))
                     {
                         //check that it's not already occupied
-                        if (cells[i, j] == Players.None)
+                        if (_cells[i, j] == Players.None)
                         {
                             isMove = true;
-                            cells[i, j] = currentMove;
+                            _cells[i, j] = _currentMove;
                         }
                     }
                 }
@@ -69,7 +73,7 @@ namespace TicTacToe
                 pnl.Invalidate();
 
                 //change the turn
-                currentMove = currentMove == Players.Player1 ? Players.Player2 : Players.Player1;
+                _currentMove = _currentMove == Players.Player1 ? Players.Player2 : Players.Player1;
 
                 //check winner
                 var winner = CheckWinner();
@@ -92,35 +96,54 @@ namespace TicTacToe
             }
         }
 
-        
-
         private Players CheckWinner()
         {
             //check verticals
             for (var i = 0; i < 3; i++)
-                if (cells[i, 0] != Players.None && cells[i, 0] == cells[i, 1] && cells[i, 0] == cells[i, 2])
-                    return cells[i, 0];
+            {
+                if (_cells[i, 0] != Players.None && _cells[i, 0] == _cells[i, 1] && _cells[i, 0] == _cells[i, 2])
+                {
+                    return _cells[i, 0];
+                }
+            }
 
             //check horizontals
             for (var i = 0; i < 3; i++)
-                if (cells[0, i] != Players.None && cells[0, i] == cells[1, i] && cells[0, i] == cells[2, i])
-                    return cells[0, i];
+            {
+                if (_cells[0, i] != Players.None && _cells[0, i] == _cells[1, i] && _cells[0, i] == _cells[2, i])
+                {
+                    return _cells[0, i];
+                }
+            }
 
             //check diagonals
-            if (cells[0, 0] != Players.None && cells[0, 0] == cells[1, 1] && cells[0, 0] == cells[2, 2])
-                return cells[1, 1];
+            if (_cells[0, 0] != Players.None && _cells[0, 0] == _cells[1, 1] && _cells[0, 0] == _cells[2, 2])
+            {
+                return _cells[1, 1];
+            }
 
-            if (cells[2, 0] != Players.None && cells[2, 0] == cells[1, 1] && cells[2, 0] == cells[0, 2])
-                return cells[1, 1];
+            if (_cells[2, 0] != Players.None && _cells[2, 0] == _cells[1, 1] && _cells[2, 0] == _cells[0, 2])
+            {
+                return _cells[1, 1];
+            }
 
             //check tie
             var isTie = true;
-            for (int i = 0; i < 3; i++)
-                for (int j = 0; j < 3; j++)
-                    if (cells[i, j] == Players.None)
+            for (var i = 0; i < 3; i++)
+            {
+                for (var j = 0; j < 3; j++)
+                {
+                    if (_cells[i, j] == Players.None)
+                    {
                         isTie = false;
+                    }
+                }
+            }
+
             if (isTie)
+            {
                 return Players.Tie;
+            }
 
             //if we are here - no winner yet
             return Players.None;
@@ -129,9 +152,9 @@ namespace TicTacToe
         private void ResetGame()
         {
             //clear the cells
-            cells = new Players[3,3];
+            _cells = new Players[3,3];
 
-            currentMove = Players.Player1;
+            _currentMove = Players.Player1;
             //redraw
             pnl.Invalidate();
         }
