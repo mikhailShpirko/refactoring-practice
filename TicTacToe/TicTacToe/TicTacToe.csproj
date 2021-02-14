@@ -57,6 +57,8 @@
     <Compile Include="GameState.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="GridPresenter.cs" />
+    <Compile Include="IGetCellOccupiedBy.cs" />
+    <Compile Include="IReadOnlyGrid.cs" />
     <Compile Include="PointToCellConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

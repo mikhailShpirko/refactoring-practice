@@ -2,9 +2,9 @@
 {
     public class GameState
     {
-        private readonly Grid _grid;
+        private readonly IReadOnlyGrid _grid;
 
-        public GameState(Grid grid)
+        public GameState(IReadOnlyGrid grid)
         {
             _grid = grid;
         }

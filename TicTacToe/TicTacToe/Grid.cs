@@ -1,6 +1,6 @@
 ﻿namespace TicTacToe
 {
-    public class Grid
+    public class Grid : IReadOnlyGrid
     {
         private CellOccupiedBy[,] _cells = new CellOccupiedBy[3, 3];
 

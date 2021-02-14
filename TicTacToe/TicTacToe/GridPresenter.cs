@@ -13,10 +13,10 @@ namespace TicTacToe
             { CellOccupiedBy.Player2,Brushes.Red }
         };
 
-        private readonly Grid _grid;
+        private readonly IGetCellOccupiedBy _grid;
         private readonly int _cellSize;
 
-        public GridPresenter(Grid grid, int cellSize)
+        public GridPresenter(IGetCellOccupiedBy grid, int cellSize)
         {
             _grid = grid;
             _cellSize = cellSize;
