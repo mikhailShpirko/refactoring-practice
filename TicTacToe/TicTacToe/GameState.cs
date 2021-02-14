@@ -1,15 +1,33 @@
-﻿namespace TicTacToe
+﻿using System;
+
+namespace TicTacToe
 {
     public class GameState
     {
         private readonly IReadOnlyGrid _grid;
+
+        public event Action<Players> OnWinner;
+        public event Action OnTie;
 
         public GameState(IReadOnlyGrid grid)
         {
             _grid = grid;
         }
 
-        public bool HasWinner(out Players winner)
+        public void ValidateGameOver()
+        {
+            if (HasWinner(out var winner))
+            {
+                OnWinner?.Invoke(winner);
+            }
+
+            if (IsTie())
+            {
+                OnTie?.Invoke();
+            }
+        }
+
+        private bool HasWinner(out Players winner)
         {
             var winningCellOccupiedBy = CellOccupiedBy.None;
             //check verticals
@@ -54,7 +72,7 @@
             return winningCellOccupiedBy != CellOccupiedBy.None;
         }
 
-        public bool IsTie()
+        private bool IsTie()
         {
             return !_grid.HasEmptyCell();
         }

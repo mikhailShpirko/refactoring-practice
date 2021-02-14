@@ -21,6 +21,15 @@ namespace TicTacToe
             _pointToCellConverter = new PointToCellConverter(_cellSize);
             _currentMove = new CurrentMove();
             _gameState = new GameState(_grid);
+
+            _grid.OnCellOccupied += pnl.Invalidate;
+            _grid.OnCellOccupied += _currentMove.SwitchMove;
+            _grid.OnCellOccupied += _gameState.ValidateGameOver;
+
+            _gameState.OnWinner += ShowWinnerMessage;
+            _gameState.OnWinner += _ => ResetGame();
+            _gameState.OnTie += ShowTieMessage;
+            _gameState.OnTie += ResetGame;
         }
 
 
@@ -36,32 +45,19 @@ namespace TicTacToe
 
             var cellIndexes = _pointToCellConverter.ConvertClickPointToCell(e.Location);
 
-            if (!_grid.IsCellVacant(cellIndexes.Item1, cellIndexes.Item2))
-            {
-                return;
-            }
+            _grid.TryOccupyCell(cellIndexes.Item1, cellIndexes.Item2, _currentMove);
 
-            _grid.OccupyCell(cellIndexes.Item1, cellIndexes.Item2, _currentMove);
-
-            //redraw
-            pnl.Invalidate();
-
-            _currentMove.SwitchMove();
-
-            //check winner
-            if (_gameState.HasWinner(out var winner))
-            {
-                MessageBox.Show($"Player {(int)winner} wins");
-                ResetGame();
-            }
-
-            if (_gameState.IsTie())
-            {
-                MessageBox.Show("It's a tie");
-                ResetGame();
-            }
         }
-      
+
+        private void ShowWinnerMessage(Players winner)
+        {
+            MessageBox.Show($"Player {(int)winner} wins");
+        }
+
+        private void ShowTieMessage()
+        {
+            MessageBox.Show("It's a tie");
+        }
 
         private void ResetGame()
         {
@@ -69,6 +65,17 @@ namespace TicTacToe
             _currentMove.Reset();
             //redraw
             pnl.Invalidate();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _grid.OnCellOccupied -= pnl.Invalidate;
+            _grid.OnCellOccupied -= _currentMove.SwitchMove;
+            _grid.OnCellOccupied -= _gameState.ValidateGameOver;
+            _gameState.OnWinner -= ShowWinnerMessage;
+            _gameState.OnWinner -= _ => ResetGame();
+            _gameState.OnTie -= ShowTieMessage;
+            _gameState.OnTie -= ResetGame;
         }
     }
 }

@@ -1,8 +1,12 @@
-﻿namespace TicTacToe
+﻿using System;
+
+namespace TicTacToe
 {
     public class Grid : IReadOnlyGrid
     {
         private CellOccupiedBy[,] _cells = new CellOccupiedBy[3, 3];
+
+        public event Action OnCellOccupied;
 
         public CellOccupiedBy GetCellOccupiedBy(int i, int j)
         {
@@ -14,9 +18,13 @@
             return GetCellOccupiedBy(i,j) == CellOccupiedBy.None;
         }
 
-        public void OccupyCell(int i, int j, Players player)
+        public void TryOccupyCell(int i, int j, Players player)
         {
-            _cells[i, j] = (CellOccupiedBy)player;
+            if (IsCellVacant(i, j))
+            {
+                _cells[i, j] = (CellOccupiedBy) player;
+                OnCellOccupied?.Invoke();
+            }
         }
 
         public bool HasEmptyCell()
