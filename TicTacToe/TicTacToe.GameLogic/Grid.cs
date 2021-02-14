@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TicTacToe
+namespace TicTacToe.GameLogic
 {
     public class Grid : IReadOnlyGrid
     {

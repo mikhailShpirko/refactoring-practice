@@ -1,4 +1,4 @@
-﻿namespace TicTacToe
+﻿namespace TicTacToe.GameLogic
 {
     public class CurrentMove
     {

@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using TicTacToe.GameLogic;
 
 namespace TicTacToe
 {

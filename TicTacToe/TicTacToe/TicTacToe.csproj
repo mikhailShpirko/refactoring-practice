@@ -46,19 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CurrentMove.cs" />
-    <Compile Include="Enums.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameState.cs" />
-    <Compile Include="Grid.cs" />
     <Compile Include="GridPresenter.cs" />
-    <Compile Include="IGetCellOccupiedBy.cs" />
-    <Compile Include="IReadOnlyGrid.cs" />
     <Compile Include="PointToCellConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +80,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicTacToe.GameLogic\TicTacToe.GameLogic.csproj">
+      <Project>{dbd1cfc4-8f15-4575-9cbd-8d0b7e3acd35}</Project>
+      <Name>TicTacToe.GameLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

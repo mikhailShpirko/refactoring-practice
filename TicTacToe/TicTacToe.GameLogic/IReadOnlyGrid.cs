@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToe
+namespace TicTacToe.GameLogic
 {
     public interface IReadOnlyGrid: IGetCellOccupiedBy
     {
