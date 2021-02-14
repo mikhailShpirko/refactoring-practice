@@ -13,6 +13,9 @@ namespace TicTacToe
         private readonly CurrentMove _currentMove;
         private readonly GameState _gameState;
 
+        private readonly WinnerValidator _winnerValidator;
+        private readonly TieValidator _tieValidator;
+
         public Form1()
         {
             InitializeComponent();
@@ -21,16 +24,20 @@ namespace TicTacToe
             _gridPresenter = new GridPresenter(_grid, _cellSize);
             _pointToCellConverter = new PointToCellConverter(_cellSize);
             _currentMove = new CurrentMove();
-            _gameState = new GameState(_grid);
+
+            _winnerValidator = new WinnerValidator(_grid);
+            _tieValidator = new TieValidator(_grid);
+
+            _gameState = new GameState(new IGameOverValidator[]{ _winnerValidator, _tieValidator});     
 
             _grid.OnCellOccupied += pnl.Invalidate;
             _grid.OnCellOccupied += _currentMove.SwitchMove;
             _grid.OnCellOccupied += _gameState.ValidateGameOver;
 
-            _gameState.OnWinner += ShowWinnerMessage;
-            _gameState.OnWinner += _ => ResetGame();
-            _gameState.OnTie += ShowTieMessage;
-            _gameState.OnTie += ResetGame;
+            _winnerValidator.OnWinner += ShowWinnerMessage;
+            _winnerValidator.OnWinner += _ => ResetGame();
+            _tieValidator.OnTie += ShowTieMessage;
+            _tieValidator.OnTie += ResetGame;
         }
 
 
@@ -73,10 +80,10 @@ namespace TicTacToe
             _grid.OnCellOccupied -= pnl.Invalidate;
             _grid.OnCellOccupied -= _currentMove.SwitchMove;
             _grid.OnCellOccupied -= _gameState.ValidateGameOver;
-            _gameState.OnWinner -= ShowWinnerMessage;
-            _gameState.OnWinner -= _ => ResetGame();
-            _gameState.OnTie -= ShowTieMessage;
-            _gameState.OnTie -= ResetGame;
+            _winnerValidator.OnWinner -= ShowWinnerMessage;
+            _winnerValidator.OnWinner -= _ => ResetGame();
+            _tieValidator.OnTie -= ShowTieMessage;
+            _tieValidator.OnTie -= ResetGame;
         }
     }
 }
