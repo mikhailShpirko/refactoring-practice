@@ -21,7 +21,6 @@ namespace TicTacToe.GameLogic
             {
                 OnWinner?.Invoke(winner);
             }
-
         }
 
         private bool HasWinner(out Players winner)
