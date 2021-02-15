@@ -27,6 +27,10 @@ I decided to re-develop the course work that I did during level 4 of BSc Busines
  
 The goal was to apply the principles of DDD and CQRS to the solution as well as follow DRY and SOLID. I made the clear separation of domains, commands and queries as well as wrote a custom extension for bubble sorting over a generic array and generic implementation of OleDb commands and queries.
 
+## TicTacToe
+I decided to refactor one of the seminars delivered on Fundamentals of Programming module (level 4) of BSc Business Information Systems (Westminster International University in Tashkent). Initially, the seminar is targeted at practising loops; the solution is structured in a simple way without strict following SOLID so that students with minimum programming knowledge should be able to complete it.
+ 
+The goal was to apply SOLID principles to the project. I started by refactoring the functions to follow SRP and applying a consistent code style. After that, I decomposed all responsibilities to separate classes and defined presentation layer and game logic layer. Finally, I made loosely coupled relationships between classes via events and separated Game Logic to separate project. All the progression can be reviewed by analyzing commit history.
 
 ## TruckTour
 I found a practice task on Hacker Rank for Data Structures: https://www.hackerrank.com/challenges/truck-tour/problem
