@@ -16,9 +16,7 @@ namespace TicTacToe.GameLogic
             foreach (var validator in _validators)
             {
                 validator.Validate();
-            }
-            
-            
+            }      
         }
     }
 }
