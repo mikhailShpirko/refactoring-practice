@@ -38,7 +38,7 @@ namespace IMJunior.ConsoleApp
 
                 Console.WriteLine(@"Колличество поинтов которые следует {0}", operationType == OperationType.Add ? "прибавить" : "отнять");
 
-                int operandPoints = inputHelper.GetNumber();
+                int operandPoints = inputHelper.GetPositiveNumberWithLimit(character.Points);
 
                 IOperation currentOperation = availableOperations.GetOperation(operationType, operandPoints);
                 character.SpendPoints(abilityType, currentOperation);
@@ -46,7 +46,7 @@ namespace IMJunior.ConsoleApp
 
             Console.WriteLine("Вы распределили все очки. Введите возраст персонажа:");
 
-            character.SetAge(inputHelper.GetNumber());
+            character.SetAge(inputHelper.GetPositiveNumber());
 
             Console.Clear();
 
