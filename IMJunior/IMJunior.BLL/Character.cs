@@ -6,14 +6,11 @@ namespace IMJunior.BLL
 {
     public class Character
     {
-        private Ability[] _abilities;
-        private int _age;
+        protected readonly Ability[] _abilities;
+        private readonly int _age;
 
-        public int Points { get; private set; }
-
-        public Character(int points)
+        public Character()
         {
-            Points = points;
             _abilities = new Ability[EnumExtensions.EnumArrayLength<AbilityType>()];
             foreach (AbilityType abilityType in EnumExtensions.EnumToArray<AbilityType>())
             {
@@ -21,22 +18,21 @@ namespace IMJunior.BLL
             }
         }
 
-        public void SetAge(int age)
+        public Character(Ability[] abilities,
+                        int age)
         {
+            _abilities = abilities;
             _age = age;
         }
 
-        public void SpendPoints(AbilityType abilityType, IOperation operation)
-        {
-            _abilities[(int)abilityType].UpdatePoints(operation.UpdateAbility);
-
-            Points = operation.UpdatePoints(Points);
-        }
-
-
         public override string ToString()
         {
-            return $"Возраст - {_age}\n{string.Join('\n', _abilities.Select(a => a.ToString()))}";
+            return $"Возраст - {_age}\n{AbilitiesToString()}";
+        }
+
+        protected string AbilitiesToString()
+        {
+            return string.Join('\n', _abilities.Select(a => a.ToString()));
         }
     }
 }
