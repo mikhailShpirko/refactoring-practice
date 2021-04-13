@@ -31,6 +31,7 @@ namespace MathEquationEvaluator.Logic
             _equationItemsStack = new Stack<EquationItem>();
             var operandBuilder = new StringBuilder();
 
+            //local function they will not be used anywhere else + sharing of local variables
             void appendOperand()
             {
                 if (operandBuilder.Length > 0)

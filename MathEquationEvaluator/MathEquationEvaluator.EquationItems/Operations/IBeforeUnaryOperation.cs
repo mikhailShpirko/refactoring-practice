@@ -1,6 +1,6 @@
 ﻿namespace MathEquationEvaluator.EquationItems.Operations
 {
-    public interface IUnaryOperation
+    public interface IBeforeUnaryOperation
     {
     }
 }

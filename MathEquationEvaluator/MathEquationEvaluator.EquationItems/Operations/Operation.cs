@@ -3,7 +3,7 @@ using MathEquationEvaluator.Core.DataStructures;
 
 namespace MathEquationEvaluator.EquationItems.Operations
 {
-    public abstract class Operation: EquationItem, IReverseNotationItem
+    public abstract class Operation: EquationItem, IReverseNotationItem, IBeforeUnaryOperation
     {
         public int Priority { get; private set; }
         protected Operation(int priority,

@@ -50,10 +50,33 @@ namespace MathEquationEvaluator.Logic
             return this;
         }
 
-        private Stack<EquationItem> ConvertEquationItemsToReverseNotionStack(EquationItem[] equationItems)
+
+        private ICollection<EquationItem> ConvertEquationItemsToReverseNotionStack(EquationItem[] equationItems)
         {
-            var equationStack = new Stack<EquationItem>();
+            IPushableCollection<EquationItem> equationStack = new Stack<EquationItem>();
             var operationStack = new Stack<EquationItem>();
+
+            //local functions they will not be used anywhere else + sharing of local variables
+            void appendOperationsUpToOpeningBracket()
+            {
+                var lastOperation = operationStack.Peek();
+                while (!(lastOperation is OpeningBracket))
+                {
+                    equationStack.Push(lastOperation);
+                    lastOperation = operationStack.Peek();
+                }
+            }
+
+            void appendHigherPriorityOpearations(Operation currentOperation)
+            {
+                while (!operationStack.IsEmpty
+                       && operationStack.Pop() is Operation previousOperation
+                       && previousOperation.Priority >= currentOperation.Priority)
+                {
+                    equationStack.Push(operationStack.Peek());
+                }
+            }
+
 
             for (var i = 0; i < equationItems.Length; i++)
             {
@@ -67,8 +90,7 @@ namespace MathEquationEvaluator.Logic
                 {
                     if (operation is IUnaryOperation
                         && (i == 0 //equation starts with unary operation
-                            || equationItems[i - 1] is OpeningBracket 
-                                    || equationItems[i - 1] is Operation))
+                            || equationItems[i - 1] is IBeforeUnaryOperation))
                     {
                         //unary operations are read as 0 n o where n is number and o is operation
                         //i.e. -5 => 0 5 -
@@ -76,12 +98,7 @@ namespace MathEquationEvaluator.Logic
                     }
                     else
                     {
-                        while (!operationStack.IsEmpty 
-                               && operationStack.Pop() is Operation previousOperation 
-                               && previousOperation.Priority >= operation.Priority)
-                        {
-                            equationStack.Push(operationStack.Peek());
-                        }
+                        appendHigherPriorityOpearations(operation);                        
                     }
                     operationStack.Push(operation);
                 }
@@ -93,12 +110,7 @@ namespace MathEquationEvaluator.Logic
                 {
                     try
                     {
-                        var lastOperation = operationStack.Peek();
-                        while (!(lastOperation is OpeningBracket))
-                        {
-                            equationStack.Push(lastOperation);
-                            lastOperation = operationStack.Peek();
-                        }
+                        appendOperationsUpToOpeningBracket();
                     }
                     //out of operation stack but still no opening bracket found
                     catch (IndexOutOfRangeException)
