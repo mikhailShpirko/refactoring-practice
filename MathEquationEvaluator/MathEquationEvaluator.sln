@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathEquationEvaluator.ConsoleUI", "MathEquationEvaluator.ConsoleUI\MathEquationEvaluator.ConsoleUI.csproj", "{EDB0EF3D-F406-4350-9DC1-0E3FB14E89C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathEquationEvaluator.ConsoleUI", "MathEquationEvaluator.ConsoleUI\MathEquationEvaluator.ConsoleUI.csproj", "{EDB0EF3D-F406-4350-9DC1-0E3FB14E89C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathEquationEvaluator.Core", "MathEquationEvaluator.Core\MathEquationEvaluator.Core.csproj", "{2AA00195-61CA-44F6-B464-5A1961E836F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathEquationEvaluator.Logic", "MathEquationEvaluator.Logic\MathEquationEvaluator.Logic.csproj", "{C78ED719-41E9-487A-95B1-DF5E65536560}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathEquationEvaluator.EquationItems", "MathEquationEvaluator.EquationItems\MathEquationEvaluator.EquationItems.csproj", "{FA137A61-5905-4A9A-8C4C-D201C81D9CB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{EDB0EF3D-F406-4350-9DC1-0E3FB14E89C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDB0EF3D-F406-4350-9DC1-0E3FB14E89C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDB0EF3D-F406-4350-9DC1-0E3FB14E89C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA00195-61CA-44F6-B464-5A1961E836F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA00195-61CA-44F6-B464-5A1961E836F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA00195-61CA-44F6-B464-5A1961E836F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA00195-61CA-44F6-B464-5A1961E836F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C78ED719-41E9-487A-95B1-DF5E65536560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78ED719-41E9-487A-95B1-DF5E65536560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78ED719-41E9-487A-95B1-DF5E65536560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78ED719-41E9-487A-95B1-DF5E65536560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA137A61-5905-4A9A-8C4C-D201C81D9CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA137A61-5905-4A9A-8C4C-D201C81D9CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA137A61-5905-4A9A-8C4C-D201C81D9CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA137A61-5905-4A9A-8C4C-D201C81D9CB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
