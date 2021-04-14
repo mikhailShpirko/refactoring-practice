@@ -45,7 +45,7 @@ namespace MathEquationEvaluator.Logic
                     }
                     else
                     {
-                        throw new NotSupportedException($"Operand '{operand}' is not supported");
+                        throw new NotSupportedException($"Lexeme '{operand}' is not supported");
                     }
                 }
             }

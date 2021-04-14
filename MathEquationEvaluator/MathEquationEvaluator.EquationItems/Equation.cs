@@ -5,12 +5,12 @@ namespace MathEquationEvaluator.EquationItems
 {
     public class Equation
     {
-        protected ICollection<IReverseNotationItem> _reverseNotationItems;
+        protected IReverseNotationItem[] _reverseNotationItems;
         public decimal Result { get; protected set; }
 
         public override string ToString()
         {
-            return _reverseNotationItems.Items.ConvertToString();
+            return _reverseNotationItems.ConvertToString();
         }
     }
 }
