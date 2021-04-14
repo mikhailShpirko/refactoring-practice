@@ -7,8 +7,8 @@ namespace MathEquationEvaluator.ConsoleUI
     {
         private static void Main(string[] args)
         {
-            var operationsFactory = new EquationOperationFactory();
-            var bracketsFactory = new EquationBracketFactory();
+            var operationsFactory = new EquationOperationInitializer();
+            var bracketsFactory = new EquationBracketInitializer();
             var equationParser = new EquationItemsParser(operationsFactory, bracketsFactory);
             var reverseNotationConverter = new ReverseNotationConverter();
             var equationEvaluator = new EquationEvaluator(equationParser, reverseNotationConverter);

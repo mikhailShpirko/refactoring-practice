@@ -9,13 +9,13 @@ namespace MathEquationEvaluator.Logic
 {
     public class EquationItemsParser: IEquationParser
     {
-        private readonly IFactory<Operation> _operationFactory;
-        private readonly IFactory<Bracket> _bracketsFactory;
+        private readonly IEquationItemInitializer<Operation> _operationFactory;
+        private readonly IEquationItemInitializer<Bracket> _bracketsFactory;
 
         private IPushableCollection<EquationItem> _equationItemsStack;
 
-        public EquationItemsParser(IFactory<Operation> operationFactory,
-            IFactory<Bracket> bracketsFactory)
+        public EquationItemsParser(IEquationItemInitializer<Operation> operationFactory,
+            IEquationItemInitializer<Bracket> bracketsFactory)
         {
             _operationFactory = operationFactory;
             _bracketsFactory = bracketsFactory;

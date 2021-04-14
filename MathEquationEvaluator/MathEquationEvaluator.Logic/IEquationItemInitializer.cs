@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MathEquationEvaluator.Logic
 {
-    public interface IFactory<T>
+    public interface IEquationItemInitializer<T>
     {
         T InitializeFromSign(char sign);
     }

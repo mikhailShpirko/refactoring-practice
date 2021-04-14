@@ -2,7 +2,7 @@
 
 namespace MathEquationEvaluator.Logic
 {
-    public class EquationOperationFactory: IFactory<Operation>
+    public class EquationOperationInitializer: IEquationItemInitializer<Operation>
     {
         public Operation InitializeFromSign(char sign)
         {

@@ -2,7 +2,7 @@
 
 namespace MathEquationEvaluator.Logic
 {
-    public class EquationBracketFactory : IFactory<Bracket>
+    public class EquationBracketInitializer : IEquationItemInitializer<Bracket>
     {
         public Bracket InitializeFromSign(char sign)
         {
