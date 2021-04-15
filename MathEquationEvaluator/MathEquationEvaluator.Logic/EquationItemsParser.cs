@@ -11,14 +11,37 @@ namespace MathEquationEvaluator.Logic
     {
         private readonly IEquationItemInitializer<Operation> _operationFactory;
         private readonly IEquationItemInitializer<Bracket> _bracketsFactory;
+        private readonly StringBuilder _operandBuilder;
 
         private IPushableCollection<EquationItem> _equationItemsStack;
+         
 
         public EquationItemsParser(IEquationItemInitializer<Operation> operationFactory,
             IEquationItemInitializer<Bracket> bracketsFactory)
         {
             _operationFactory = operationFactory;
             _bracketsFactory = bracketsFactory;
+            _operandBuilder = new StringBuilder();
+        }
+
+        private void AppendOperand()
+        {
+            if (_operandBuilder.Length == 0)
+            {
+                return;
+            }
+
+            var operand = _operandBuilder.ToString();
+            //will parse if there are spaces vefore and/or after decimal
+            if (decimal.TryParse(operand, out var operandValue))
+            {
+                _equationItemsStack.Push(new Operand(operandValue));
+                _operandBuilder.Clear();
+            }
+            else
+            {
+                throw new NotSupportedException($"Lexeme '{operand}' is not supported");
+            }
         }
 
         public EquationItem[] ParseEquationItems(string equation)
@@ -29,26 +52,7 @@ namespace MathEquationEvaluator.Logic
             }
 
             _equationItemsStack = new Stack<EquationItem>();
-            var operandBuilder = new StringBuilder();
-
-            //local function they will not be used anywhere else + sharing of local variables
-            void appendOperand()
-            {
-                if (operandBuilder.Length > 0)
-                {
-                    var operand = operandBuilder.ToString();
-                    //will parse if there are spaces vefore and/or after decimal
-                    if (decimal.TryParse(operand, out var operandValue))
-                    {
-                        _equationItemsStack.Push(new Operand(operandValue));
-                        operandBuilder.Clear();
-                    }
-                    else
-                    {
-                        throw new NotSupportedException($"Lexeme '{operand}' is not supported");
-                    }
-                }
-            }
+            _operandBuilder.Clear();
 
             foreach (var sign in equation)
             {
@@ -57,16 +61,16 @@ namespace MathEquationEvaluator.Logic
                 if (bracket != null || operation != null)
                 {
                     var equationItem = bracket ?? (EquationItem)operation;
-                    appendOperand();
+                    AppendOperand();
                     _equationItemsStack.Push(equationItem);
                 }
                 else
                 {
-                    operandBuilder.Append(sign);
+                    _operandBuilder.Append(sign);
                 }
             }
 
-            appendOperand();
+            AppendOperand();
 
             return _equationItemsStack.Items;
         }
