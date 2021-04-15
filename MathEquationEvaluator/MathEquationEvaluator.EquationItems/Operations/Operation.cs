@@ -5,7 +5,7 @@ namespace MathEquationEvaluator.EquationItems.Operations
 {
     public abstract class Operation: EquationItem, IOperation, IReverseNotationItem, IBeforeUnaryOperation
     {
-        public int Priority { get; private set; }
+        public readonly int Priority;
         protected Operation(int priority,
                             string item) 
             : base(item)
