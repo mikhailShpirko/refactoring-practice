@@ -1,5 +1,4 @@
-﻿using MathEquationEvaluator.Core.DataStructures;
-using MathEquationEvaluator.Core.Extensions;
+﻿using MathEquationEvaluator.Core.Extensions;
 
 namespace MathEquationEvaluator.EquationItems
 {

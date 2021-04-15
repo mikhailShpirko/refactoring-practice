@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MathEquationEvaluator.EquationItems;
+﻿using MathEquationEvaluator.EquationItems;
 
 namespace MathEquationEvaluator.Logic
 {
