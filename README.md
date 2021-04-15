@@ -17,6 +17,33 @@ Before refactoring: https://pastebin.com/RSc7Uvqx
   
 The app is a primitive emulator of RPG mechanics. User as a character has a number of points that can be spent on abilities. Following DRY and SOLID, I made the solution more dynamic - abilities can be easily added or removed without crash for the app.
 
+## MathEquationEvaluator
+This is solution for several practical tasks given as a part of the course "Information Systems Architect" by GeekBrains.ru 
+  
+The requirement was to create a Calculator Console app that will evaluate a math equation and produce it in Reverse Polish Notation and show calculation result.
+
+Supported operations: +, -, *, /, (, ), unary +, unary - 
+
+Example:
+
+Input: (1 + 2) * 4 + 3
+
+Output: 
+
+1 2 + 4 * 3 +
+
+15
+
+Important note: all major algorythms and dat structures required to be implemented manually. Arrays can be used. Assumption made that build in functions like string.Split or string.Join had to be implemented manually.
+
+My solution includes validation for not supported characters and correctness of the equation (i.e. brackets mismatch, etc.); handles cases when there are extra spaces before/after operations; supports equations like --1, +-1.
+
+The first task was to implement the requirement following structural paradigm (use only functions). Task was quite challanging as I got used to OOP paradigm. Initial commit has completion of the task.
+
+The next task was to refactor initial solution to OOP paradign. I heavily refactored solution to make it more structure and apply SOLID principles.
+
+You can evaluate the progression on the tasks by respective commits.
+
 ## Space Shooter
 This is an enhanced solution for one of the seminars delivered in Game Development module at Westminster International University in Tashkent. The project is a prototype of endless space shooter gameplay made with Unity game engine.
  
