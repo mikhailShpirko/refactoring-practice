@@ -1,12 +1,10 @@
 ﻿using System;
 using MathEquationEvaluator.Core.DataStructures;
 using MathEquationEvaluator.EquationItems;
-using MathEquationEvaluator.EquationItems.Brackets;
-using MathEquationEvaluator.EquationItems.Operations;
 
 namespace MathEquationEvaluator.Logic
 {
-    public class EquationEvaluator: Equation, IEvaluatable
+    public class EquationEvaluator: Equation, IEvaluator, IEvaluatable
     {
         private readonly IEquationParser _equationParser;
         private readonly INotationConverter _notationConverter;
@@ -48,8 +46,5 @@ namespace MathEquationEvaluator.Logic
             Result = evaluationStack.Peek();
             return this;
         }
-
-
-        
     }
 }

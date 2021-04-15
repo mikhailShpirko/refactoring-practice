@@ -6,7 +6,7 @@ using MathEquationEvaluator.EquationItems.Operations;
 
 namespace MathEquationEvaluator.Logic
 {
-    public class ReverseNotationConverter: INotationConverter
+    public class ReverseNotationConverter: INotationConverter, IConvertable
     {
         protected IPushableCollection<IReverseNotationItem> _convertedEquation;
         protected Stack<IOperation> _operationsStack;

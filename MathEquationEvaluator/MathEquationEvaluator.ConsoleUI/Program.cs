@@ -11,7 +11,7 @@ namespace MathEquationEvaluator.ConsoleUI
             var bracketsFactory = new EquationBracketInitializer();
             var equationParser = new EquationItemsParser(operationsFactory, bracketsFactory);
             var reverseNotationConverter = new ReverseNotationConverter();
-            var equationEvaluator = new EquationEvaluator(equationParser, reverseNotationConverter);
+            IEvaluator equationEvaluator = new EquationEvaluator(equationParser, reverseNotationConverter);
             while (true)
             {
                 //remove all previous input
