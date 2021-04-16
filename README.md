@@ -38,9 +38,9 @@ Important note: all major algorythms and dat structures required to be implement
 
 My solution includes validation for not supported characters and correctness of the equation (i.e. brackets mismatch, etc.); handles cases when there are extra spaces before/after operations; supports equations like --1, +-1.
 
-The first task was to implement the requirement following structural paradigm (use only functions). Task was quite challanging as I got used to OOP paradigm. Initial commit has completion of the task.
+The first task was to implement the requirement following structured programming paradigm (use only functions). Task was quite challanging as I got used to OOP paradigm. Initial commit has completion of the task.
 
-The next task was to refactor initial solution to OOP paradign. I heavily refactored solution to make it more structure and apply SOLID principles.
+The next task was to refactor initial solution to OOP paradigm. I heavily refactored solution to make it more structure and apply SOLID principles.
 
 You can evaluate the progression on the tasks by respective commits.
 
