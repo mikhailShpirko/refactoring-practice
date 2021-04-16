@@ -43,7 +43,7 @@ namespace MathEquationEvaluator.Logic
                 evaluationStack.Push(0);
             }
 
-            Result = evaluationStack.Peek();
+            Result = evaluationStack.Pop();
             return this;
         }
     }

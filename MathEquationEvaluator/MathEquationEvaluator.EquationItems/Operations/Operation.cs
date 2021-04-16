@@ -21,8 +21,8 @@ namespace MathEquationEvaluator.EquationItems.Operations
             {
                 throw new NotSupportedException("Not enough numbers in the equation");
             }
-            var b = evaluationStack.Peek();
-            var a = evaluationStack.Peek();
+            var b = evaluationStack.Pop();
+            var a = evaluationStack.Pop();
 
             evaluationStack.Push(Execute(a, b));
         }

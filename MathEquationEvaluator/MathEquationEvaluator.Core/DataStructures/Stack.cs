@@ -24,14 +24,14 @@ namespace MathEquationEvaluator.Core.DataStructures
             _items[_items.GetLastIndex()] = newItem;
         }
 
-        public T Pop()
+        public T Peek()
         {
             return _items[_items.GetLastIndex()];
         }
 
-        public T Peek()
+        public T Pop()
         {
-            var topItem = Pop();
+            var topItem = Peek();
             Array.Resize(ref _items, _items.GetLastIndex());
             return topItem;
         }

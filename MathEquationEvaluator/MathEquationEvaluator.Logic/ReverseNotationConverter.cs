@@ -14,21 +14,21 @@ namespace MathEquationEvaluator.Logic
 
         private void AppendOperationsUpToOpeningBracket()
         {
-            var lastOperation = _operationsStack.Peek();
+            var lastOperation = _operationsStack.Pop();
             while (!(lastOperation is OpeningBracket) && lastOperation is Operation operation)
             {
                 _convertedEquation.Push(operation);
-                lastOperation = _operationsStack.Peek();
+                lastOperation = _operationsStack.Pop();
             }
         }
 
         private void AppendHigherPriorityOpearations(Operation currentOperation)
         {
             while (!_operationsStack.IsEmpty
-                   && _operationsStack.Pop() is Operation previousOperation
+                   && _operationsStack.Peek() is Operation previousOperation
                    && previousOperation.Priority >= currentOperation.Priority)
             {
-                _convertedEquation.Push(_operationsStack.Peek() as Operation);
+                _convertedEquation.Push(_operationsStack.Pop() as Operation);
             }
         }
 
@@ -84,15 +84,15 @@ namespace MathEquationEvaluator.Logic
                 }
             }
 
-            while (!_operationsStack.IsEmpty && _operationsStack.Pop() is Operation)
+            while (!_operationsStack.IsEmpty && _operationsStack.Peek() is Operation)
             {
-                _convertedEquation.Push(_operationsStack.Peek() as Operation);
+                _convertedEquation.Push(_operationsStack.Pop() as Operation);
             }
 
             //something went wrong
             if (!_operationsStack.IsEmpty)
             {
-                throw new NotSupportedException($"Wrong equation provided. '{_operationsStack.Pop()}' not supported in Reverse Notation");
+                throw new NotSupportedException($"Wrong equation provided. '{_operationsStack.Peek()}' not supported in Reverse Notation");
             }
 
             return _convertedEquation.Items;
